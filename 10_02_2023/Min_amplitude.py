@@ -19,11 +19,15 @@
     https://leetcode.com/problems/minimum-difference-between-largest-and-smallest-value-in-three-moves/)
 """
 def find_min_amplitude(input, k):
-
+    """
+        build counters: O(n*logn) or n(n^2)
+        update retValue: O(n)
+        Total: O(n*logn) or n(n^2), depending on the sorting algorithm utilized.
+    """
     MIN_AMP = -1
 
     # 1. sort the input.
-    input_sort = sorted(input)
+    input_sort = sorted(input) # -> O(n*logn) or n(n^2)
 
     # 2. check if k is less than the array's length.
     if len(input) < k:
@@ -40,7 +44,7 @@ def find_min_amplitude(input, k):
     #     j += 1
 
     """ Solution 2"""
-    for i, j in zip(range(1, len(input) - k + 1), range(last+1, len(input)-1)):
+    for i, j in zip(range(1, len(input) - k + 1), range(last+1, len(input)-1)):   # O(n)
         if input_sort[j] - input_sort[i] < MIN_AMP:
             MIN_AMP = input_sort[j] - input_sort[i]
 

@@ -18,14 +18,19 @@ import collections
 
 class Solution:
     def numSplits(self, s: str) -> int:
+        """
+            build counters: 2*O(n)
+            update retValue: O(n)
+            Total: 3*O(n) -> O(n)
+        """
         cnt = 0
         cnt_unique_left = 0
         cnt_unique_right = 0
 
         if len(s) >= 1 and len(s) <= 100000:
 
-            left_counter = collections.Counter(s[:1])
-            right_counter = collections.Counter(s[1:])
+            left_counter = collections.Counter(s[:1])       # O(n)
+            right_counter = collections.Counter(s[1:])      # O(n)
             # print(s[:1], s[1:])
 
             cnt_left = len(left_counter.keys())
@@ -35,7 +40,7 @@ class Solution:
                 cnt += 1
                 # print('+1', left_counter, right_counter)
 
-            for i in range(1, len(s)):
+            for i in range(1, len(s)):                      # O(n)
                 e = s[i]  # the one will be added to left
                 # print(e)
 
