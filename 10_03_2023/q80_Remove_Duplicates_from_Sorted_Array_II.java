@@ -1,6 +1,4 @@
-import collections
-
-"""
+/**
     Questions (Medium):
         Given an integer array nums sorted in non-decreasing order, remove some duplicates in-place such that 
         each unique element appears at most twice. The relative order of the elements should be kept the same.
@@ -31,42 +29,43 @@ import collections
     (Ref: 
         https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/description/?envType=study-plan-v2&envId=top-interview-150
     )
-"""
+*/
 
-class Solution:
-    def remove_duplicates(self, nums: list[int]) -> int:
-        """
-            Time & space complexity analysis.
-        """
-        # Initialize the counter and the array index.
-        i, count = 1, 1
+class Solution {
+    public int[] removeAnElement(int[] nums, int indexToRemove){
+        // Overwrite it
+        for (int i = indexToRemove+1; i < nums.length; i++) {
+            nums[i-1] = nums[i];
+        }
+        return nums;
+    }
 
-        # Start from the second element of the array and process elements one by one.
-        while i < len(nums):
+    public static void printNums(int[] nums){
+        for (Integer i=0; i < nums.length; i++) {
+            System.out.println(nums[i]);
+        }
+        System.out.println("----");
+    }
 
-            # If the current element is a duplicate, increment the count.
-            if nums[i] == nums[i - 1]:
-                count += 1
+    public int removeDuplicates(int[] nums) {
+        int i = 1;
+        int count = 1;
+        int length = nums.length;
 
-                # If the count is more than 2, this is an unwanted duplicate element and hence we remove it from the array.
-                if count > 2:
-                    nums.pop(i)
-
-                    # Note that we have to decrement the array index value
-                    #  to keep it consistent with the size of the array.
-                    i -= 1
-            else:
-                # Reset the count since we encountered a different element
-                # than the previous one
-                count = 1
-
-            # Move on to the next element in the array
-            i += 1
-
-        return len(nums)
-
-
-if __name__ == '__main__':
-    # input examples
-    nums = [1, 1, 1, 2, 2, 3]
-    print(Solution().remove_duplicates(nums))
+        while(i < length){
+            if(nums[i] == nums[i-1]){
+                count++;
+                if(count > 2){
+                    this.removeAnElement(nums, i);
+                    printNums(nums);
+                    i--;
+                    length--;
+                }
+            } else {
+                count = 1;
+            }
+            i++;
+        }
+        return length;
+    }
+}
