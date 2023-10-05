@@ -38,6 +38,8 @@ class Solution:
         """
             Time & space complexity analysis.
         """
+        print(nums)
+
         # Initialize the counter and the array index.
         i, count = 1, 1
 
@@ -50,7 +52,9 @@ class Solution:
 
                 # If the count is more than 2, this is an unwanted duplicate element and hence we remove it from the array.
                 if count > 2:
+                    print(f'Pop up {i} - {nums[i]}')
                     nums.pop(i)
+                    print(nums)
 
                     # Note that we have to decrement the array index value
                     #  to keep it consistent with the size of the array.
@@ -68,5 +72,6 @@ class Solution:
 
 if __name__ == '__main__':
     # input examples
-    nums = [1, 1, 1, 2, 2, 3]
+    # nums = [1, 1, 1, 2, 2, 3]
+    nums = [0,0,1,1,1,1,2,3,3]
     print(Solution().remove_duplicates(nums))
