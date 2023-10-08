@@ -14,43 +14,28 @@
 */
 
 class Solution {
+    public int majorityElement(int[] nums) {
 
-    public int removeElement(int[] nums, int val) {
-        /**
-            Solution-1: O(n)
-        */
-        int pStart = 0;
-        int pEnd = length-1;
+        int majKey = -1;
 
-        while (pStart <= pEnd){
-            if (nums[pStart] == val) {
-                nums[pStart] = nums[pEnd];
-                pEnd--;
+        Map<Integer, Integer> myMap = new LinkedHashMap<Integer, Integer>();
+
+        for (int i = 0; i < nums.length; i++) {
+            int k = nums[i];
+            if (myMap.containsKey(k)) {
+                int currValue = myMap.get(k);
+                myMap.put(k, currValue + 1);
             } else {
-                pStart++;
+                myMap.put(k, 1);
             }
         }
 
-        return pStart;
-
-    }
-
-    public int removeElement2(int[] nums, int val) {
-        /**
-            Solution-2: O(n)
-        */
-        int length = nums.length;
-        int pStart = 0;
-
-        while (pStart < length){
-            if (nums[pStart] == val) {
-                nums[pStart] = nums[length-1];
-                length--;
-            } else {
-                pStart++;
+        for (Map.Entry<Integer, Integer> e : myMap.entrySet()){
+            if (e.getValue() > (Integer)(nums.length/2)){
+                majKey = e.getKey();
             }
         }
 
-        return length;
+        return majKey;
     }
 }
