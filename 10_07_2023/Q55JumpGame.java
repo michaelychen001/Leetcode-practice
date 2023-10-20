@@ -24,7 +24,7 @@
 
 */
 
-class Solution {
+class Solution55 {
     public boolean canJump(int[] nums) {
         // input = [2, 3, 1, 1, 4]
         //          g  g  g  g  g

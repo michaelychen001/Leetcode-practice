@@ -23,14 +23,14 @@
     Ref: https://leetcode.com/problems/remove-element/?envType=study-plan-v2&envId=top-interview-150
 */
 
-class Solution {
+class Solution27 {
 
     public int removeElement(int[] nums, int val) {
         /**
             Solution-1: O(n)
         */
         int pStart = 0;
-        int pEnd = length-1;
+        int pEnd = nums.length-1;
 
         while (pStart <= pEnd){
             if (nums[pStart] == val) {

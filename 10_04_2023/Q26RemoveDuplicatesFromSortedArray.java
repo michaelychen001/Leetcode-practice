@@ -23,7 +23,7 @@
         It does not matter what you leave beyond the returned k (hence they are underscores).
 */
 
-class Solution {
+class Solution26 {
     public void removeAnEle(int[] arr, int rmIdx) {
         for (int i = rmIdx+1; i < arr.length; i++) {
             arr[i-1] = arr[i];

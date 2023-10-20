@@ -25,14 +25,24 @@
  *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
-class Solution {
+
+class ListNode {
+    int val;
+    ListNode next;
+
+    ListNode() {}
+    ListNode(int val) { this.val = val; }
+    ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+}
+
+class Q21MergeTwoLists {
 
     public void print(ListNode pHead) {
         ListNode pp = pHead;
-        System.out.print(pp.val);
+        System.out.print(String.valueOf(pp.val) + ", ");
         while(pp.next != null) {
             pp = pp.next;
-            System.out.print(pp.val);
+            System.out.print(String.valueOf(pp.val) + ", ");
         }
         System.out.println();
     }
@@ -86,5 +96,23 @@ class Solution {
         // print(pHead);
 
         return pHead;
+    }
+
+    // Program Entry
+    public static void main(String[] args){
+        ListNode[] l1 = new ListNode[3];
+        l1[2] = new ListNode(13);
+        l1[1] = new ListNode(12, l1[2]);
+        l1[0] = new ListNode(11, l1[1]);
+
+        ListNode[] l2 = new ListNode[3];
+        l2[2] = new ListNode(23);
+        l2[1] = new ListNode(22, l2[2]);
+        l2[0] = new ListNode(21, l2[1]);
+
+        Q21MergeTwoLists solution = new Q21MergeTwoLists();
+        ListNode head = solution.mergeTwoLists(l1[0], l2[0]);
+        solution.print(head);
+
     }
 }

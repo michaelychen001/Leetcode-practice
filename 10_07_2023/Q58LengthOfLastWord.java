@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 /**
     Questions:
         Given a string s consisting of words and spaces, return the length of the last word in the string.
@@ -20,7 +23,7 @@
         Explanation: The last word is "joyboy" with length 6.
 */
 
-class Solution {
+class Solution58 {
     public int lengthOfLastWord(String s) {
 
         /**

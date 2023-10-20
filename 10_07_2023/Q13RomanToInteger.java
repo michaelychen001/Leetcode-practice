@@ -1,3 +1,6 @@
+import java.util.HashMap;
+import java.util.Map;
+
 /**
     Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
         Symbol       Value
@@ -34,7 +37,7 @@
 
 */
 
-class Solution {
+class Solution13 {
     public int romanToInt(String s) {
         Map<Character, Integer> romanMap = new HashMap<Character, Integer>();
         romanMap.put('I', 1);

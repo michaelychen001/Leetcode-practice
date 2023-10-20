@@ -28,7 +28,7 @@
     Ref: https://leetcode.com/problems/merge-sorted-array/?envType=study-plan-v2&envId=top-interview-150
 */
 
-class Solution {
+class Solution88 {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
 
         /**

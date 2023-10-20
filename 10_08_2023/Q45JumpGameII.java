@@ -19,7 +19,7 @@
 
 */
 
-class Solution {
+class Solution45 {
     public int jump(int[] nums) {
         int n = nums.length;
 

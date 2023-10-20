@@ -20,7 +20,7 @@
     Ref: https://leetcode.com/problems/rotate-array/description/?envType=study-plan-v2&envId=top-interview-150
 */
 
-class Solution {
+class Solution189 {
     public void rotate(int[] nums, int k) {
 
         /**

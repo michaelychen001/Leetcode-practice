@@ -17,6 +17,11 @@
         Explanation: There is a cycle in the linked list, where the tail connects to the 0th node.
 
 */
+
+import java.lang.*;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Definition for singly-linked list.
  * class ListNode {
@@ -28,7 +33,7 @@
  *     }
  * }
  */
-public class Solution {
+class Solution141 {
     public boolean hasCycle(ListNode head) {
         ListNode p = head;
         List<ListNode> visited = new ArrayList<ListNode>();

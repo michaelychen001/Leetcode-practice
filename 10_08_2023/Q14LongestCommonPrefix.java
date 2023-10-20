@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 
 /**
     Questions:
@@ -15,7 +17,7 @@
 
 */
 
-class Solution {
+class Solution14 {
     public String longestCommonPrefix(String[] strs) {
 
         int StrsLen = strs.length;

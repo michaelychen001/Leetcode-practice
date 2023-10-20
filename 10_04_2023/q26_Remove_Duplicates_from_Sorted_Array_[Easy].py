@@ -4,7 +4,7 @@ import collections
     Questions: 
 """
 
-class Solution:
+class Q26RemoveDuplicates:
     def remove_duplicates(self, nums: list) -> int:
         """
             Time & space complexity analysis.
