@@ -1,0 +1,81 @@
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+
+/**
+ * Definition for a binary tree node.
+ */
+
+//class TreeNode {
+//     int val;
+//     TreeNode left;
+//     TreeNode right;
+//     TreeNode() {}
+//     TreeNode(int val) { this.val = val; }
+//     TreeNode(int val, TreeNode left, TreeNode right) {
+//         this.val = val;
+//         this.left = left;
+//         this.right = right;
+//     }
+// }
+
+public class Q104MaximumDepthOfBinaryTree {
+    public int maxDepth(TreeNode root) {
+        int level = 0;
+        if (root == null){
+            return level;
+        }
+
+        Queue<TreeNode> queue = new LinkedList<TreeNode>();
+        queue.offer(root);
+        level++;
+
+        while(!queue.isEmpty()){
+            int size = queue.size();
+            boolean hasNextLevel = false;
+            for (int i=0; i<size; i++) {
+                TreeNode tmp = queue.poll();
+                if (tmp.left != null) {
+                    queue.offer(tmp.left);
+                    hasNextLevel = true;
+                }
+                if (tmp.right != null) {
+                    queue.offer(tmp.right);
+                    hasNextLevel = true;
+                }
+            }
+
+            if (hasNextLevel){
+                level++;
+            }
+        }
+
+        return level;
+    }
+
+    public int maxDepth_Optimized(TreeNode root) {
+        int level = 0;
+        if (root == null){
+            return level;
+        }
+
+        Queue<TreeNode> queue = new LinkedList<TreeNode>();
+        queue.offer(root);
+
+        while(!queue.isEmpty()){
+            int size = queue.size();
+            for (int i=0; i<size; i++) {
+                TreeNode tmp = queue.poll();
+                if (tmp.left != null) {
+                    queue.offer(tmp.left);
+                }
+                if (tmp.right != null) {
+                    queue.offer(tmp.right);
+                }
+            }
+            level++;
+        }
+
+        return level;
+    }
+}

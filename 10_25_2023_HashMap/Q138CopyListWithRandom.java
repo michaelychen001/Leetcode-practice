@@ -16,6 +16,10 @@ class Node {
 
 public class Q138CopyListWithRandom {
     public Node copyRandomList(Node head) {
+        /*
+        * Time: O(2n)
+        * Space: O(n) -> HashMap
+        */
         Map<Node, Node> map = new HashMap<Node, Node>();
 
         Node p1 = head;
