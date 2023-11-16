@@ -3,22 +3,47 @@ import java.util.*;
 class Q70ClimbingStairs {
 
 
-     public int climbStairs(int n) {
+    public int climbStairsBest(int n) {
+        // only need constant space
 
-        List<Integer> memo = new ArrayList<Integer>();
-
-        for (int i=0; i < n; i++) {
-            if (i == 0) {
-                memo.add(i, 1);
-            } else if (i == 1) {
-                memo.add(i, 2);
-            } else {
-                int tmp = memo.get(i-1) + memo.get(i-2);
-                memo.add(i, tmp);
-            }
+        if (n == 1) {
+            return 1;
         }
 
-        return memo.get(n-1);
+        if (n == 2) {
+            return 2;
+        }
+
+        int left = 2;
+        int leftLeft = 1;
+
+        for (int i=3; i <= n; i++) {
+            int tmp = left + leftLeft;
+            leftLeft = left;
+            left = tmp;
+        }
+
+        return left;
+
+    }
+
+     public int climbStairs(int n) {
+
+         // only O(n) space
+
+         if (n==1) {
+             return n;
+         }
+
+         int[] dp = new int[n+1];
+         dp[1] = 1;
+         dp[2] = 2;
+
+        for (int i=3; i < n; i++) {
+            dp[i] = dp[i-1] + dp[i-2];
+        }
+
+        return dp[n];
 
     }
 
@@ -32,6 +57,29 @@ class Q70ClimbingStairs {
         System.out.println("***** Result *****");
     }
 }
+
+//    public int climbStairs(int n) {
+//
+//        if (n==1) {
+//            return n;
+//        }
+//
+//        List<Integer> memo = new ArrayList<Integer>();
+//
+//        for (int i=0; i < n; i++) {
+//            if (i == 0) {
+//                memo.add(i, 1);
+//            } else if (i == 1) {
+//                memo.add(i, 2);
+//            } else {
+//                int tmp = memo.get(i-1) + memo.get(i-2);
+//                memo.add(i, tmp);
+//            }
+//        }
+//
+//        return memo.get(n-1);
+//
+//    }
 
 //class Q70ClimbingStairs {
 //
